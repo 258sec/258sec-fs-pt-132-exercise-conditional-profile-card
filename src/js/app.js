@@ -46,6 +46,16 @@ function render(variables = {}) {
     `;
 }
 
+let variables = {};
+
+document.querySelectorAll(".picker").forEach(picker => {
+  picker.addEventListener("change", function() {
+    const key = picker.getAttribute("for");
+    variables[key] = picker.value;
+    render(variables);
+  });
+});
+
 /**
  * Don't change any of the lines below, here is where we do the logic for the dropdowns
  */
